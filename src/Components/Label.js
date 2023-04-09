@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const PseudoLabel = styled.label`
-    font: 400 12px/12px 'Inter';
+    font: var(--ya-text-caption);
     display: flex;
     flex-direction: column;
     color: var(--ya-color-steel-gray-400);

@@ -5,10 +5,10 @@ function SecondaryButton(props) {
     // Здесь устанавливается минимальная ширина для кнопки
     const minWidth = props.minWidth === undefined ? '217px' : props.minWidth;
     const Button = styled.div`
+        font: var(--ya-text-md);
         background: var(--ya-color-surface);
         border: 1px solid var(--ya-color-steel-gray-500);
         border-radius: var(--ya-border-radius-md);
-        box-shadow: inset 0px 1px 2px rgba(10, 15, 26, 0.08);
         min-width: ${minWidth};
         color: var(--ya-color-steel-gray-500);
         

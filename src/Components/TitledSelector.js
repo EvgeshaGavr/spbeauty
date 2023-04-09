@@ -4,7 +4,7 @@ import ArrowDownIcon from "../Icons/ArrowDownIcon";
 import { useState } from "react";
 
 const Select = styled.select`
-    font: 400 15px/18px 'Inter';
+    font: var(--ya-text-rg);
     outline: none;
     background-color: var(--ya-color-steel-gray-50);
     border: 1px solid var(--ya-color-steel-gray-200);
