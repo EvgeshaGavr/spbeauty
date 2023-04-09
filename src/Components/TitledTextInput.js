@@ -1,24 +1,31 @@
 import styled from "styled-components";
+import { Label } from "./Label";
 
 const Input = styled.input`
+    font: 400 15px/18px 'Inter';
     outline: none;
-    border-radius: 0px;
-    border: solid #152842 1px;
-    background-color: #D9E2EF;
-    color: #666787;
+    background: var(--ya-color-steel-gray-50);
+    border: 1px solid var(--ya-color-steel-gray-200);
+    border-radius: var(--ya-border-radius-md);
+    color: var(--ya-color-steel-gray-900);
+    padding: 8px 16px;
+
+    &::placeholder {
+        color: var(--ya-color-steel-gray-400);
+    }
+
     &:hover {
-        background-color: #D9E2EFB8;
+        background: var(--ya-color-steel-gray-50);
     }
 `;
 
 function TitledTextInput({title, def}) {
-    const Title = title === undefined ? 
-        (<div></div>) : 
-        (<div>{title}</div>);
     return (
         <div className='d-flex flex-column gap-2'>
-            {Title}
-            <Input className='p-2' defaultValue={def} ></Input>
+            <Label>
+                {title}
+                <Input defaultValue={def} />
+            </Label>
         </div>
     );
 }
