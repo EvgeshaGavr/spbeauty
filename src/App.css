@@ -1,7 +1,11 @@
 /* css vars */
 :root {
+    --ya-color-surface: #ffffff;
     --ya-color-steel-gray-500: #64748B;
     --ya-color-steel-gray-400: #94A3B8;
     --ya-color-steel-gray-200: #E2E8F0;
     --ya-color-steel-gray-50: #F8FAFC;
+
+
+    --ya-border-radius-md: 24px;
 }
