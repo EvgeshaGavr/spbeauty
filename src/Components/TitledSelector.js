@@ -1,35 +1,67 @@
 import styled from "styled-components";
+import { Label } from "./Label";
+import ArrowDownIcon from "../Icons/ArrowDownIcon";
+import { useState } from "react";
 
 const Select = styled.select`
-    background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
-    background-position: calc(100% - 0.75rem) center !important;
+    font: 400 15px/18px 'Inter';
+    outline: none;
+    background-color: var(--ya-color-steel-gray-50);
+    border: 1px solid var(--ya-color-steel-gray-200);
+    border-radius: var(--ya-border-radius-md);
+    color: var(--ya-color-steel-gray-900);
+    padding: 8px 16px;
+    flex-grow: 1;
+    min-width: 0;
+
     -moz-appearance:none !important;
     -webkit-appearance: none !important; 
     appearance: none !important;
-    outline: none;
-    border-radius: 0px;
-    border: solid #152842 1px;
-    background-color: #D9E2EF;
-    color: #666787;
+
     &:hover {
-        background-color: #D9E2EFB8;
+        background-color: var(--ya-color-steel-gray-50);
+    }
+`;
+
+const SelectWrapper = styled.div`
+    position: relative;
+    display: flex;
+    
+    .icon-dropdown {
+        position: absolute;
+        right: 16px;
+        top: 8px;
+
+        &_opened {
+            transform: rotate(-180deg);
+        }
     }
 `;
 
 function TitledSelector({title, options}) {
-    const Title = title === undefined ? 
-        (<div></div>) : 
-        (<div>{title}</div>);
+
+    const [opened, setToggle] = useState(false)
+    const toggle = () => setToggle(!opened);
+
+    const iconDropDownClassNames = `icon-dropdown ${opened ? 'icon-dropdown_opened' : null}`;
+
     return (
         <div className='d-flex flex-column gap-2'>
-            {Title}
-            <Select className='p-2'>
-                {options.map(optionName => {
-                    return (
-                        <option key={optionName}>{optionName}</option>
-                    );
-                })}
-            </Select>
+           <Label>
+                {title}
+                <SelectWrapper>
+                    <Select onClick={toggle}>
+                        {options.map(optionName => {
+                            return (
+                                <option key={optionName}>{optionName}</option>
+                            );
+                        })}
+                    </Select>
+                    <div className={iconDropDownClassNames}>
+                        <ArrowDownIcon />
+                    </div>
+                </SelectWrapper>
+            </Label>
         </div>
     );
 }

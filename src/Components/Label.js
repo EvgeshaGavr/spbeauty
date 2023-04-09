@@ -6,7 +6,7 @@ const PseudoLabel = styled.label`
     flex-direction: column;
     color: var(--ya-color-steel-gray-400);
 
-    & > input {
+    & > * {
         margin-top: 8px;
     }
 `;
