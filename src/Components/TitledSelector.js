@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Label } from "./Label";
 import ArrowDownIcon from "../Icons/ArrowDownIcon";
 import { useState } from "react";
+import { useOuterClick } from "../Utils/useOuterClick";
+
 
 const Select = styled.select`
     font: var(--ya-text-rg);
@@ -42,6 +44,7 @@ function TitledSelector({title, options}) {
 
     const [opened, setToggle] = useState(false)
     const toggle = () => setToggle(!opened);
+    const innerRef = useOuterClick(() => setToggle(false));
 
     const iconDropDownClassNames = `icon-dropdown ${opened ? 'icon-dropdown_opened' : null}`;
 
@@ -50,7 +53,7 @@ function TitledSelector({title, options}) {
            <Label>
                 {title}
                 <SelectWrapper>
-                    <Select onClick={toggle}>
+                    <Select onClick={toggle} ref={innerRef}>
                         {options.map(optionName => {
                             return (
                                 <option key={optionName}>{optionName}</option>

@@ -1,3 +1,27 @@
+/* css vars */
+:root {
+  --ya-color-surface: #ffffff;
+
+  --ya-color-white: #ffffff;
+  --ya-color-steel-gray-900: #0F172A;
+  --ya-color-steel-gray-500: #64748B;
+  --ya-color-steel-gray-400: #94A3B8;
+  --ya-color-steel-gray-200: #E2E8F0;
+  --ya-color-steel-gray-50: #F8FAFC;
+
+  --ya-color-accent-blue: #3B82F6;
+
+  --ya-border-radius-md: 24px;
+
+  --ya-text-title: 600 normal 20px/24px 'Inter';
+  --ya-text-title-lg: 600 normal 28px/34px 'Inter';
+  --ya-text-caption: 400 12px/12px 'Inter';
+  --ya-text-md: 500 normal 15px/18px 'Inter';
+  --ya-text-rg: 400 15px/18px 'Inter';
+}
+
 body {
   margin: 0;
+  font: var(--ya-text-rg);
+  color: var(--ya-color-steel-gray-900);
 }
